@@ -11,7 +11,6 @@ class AutoencoderKL(nn.Module):
         self,
         ddconfig=None,
         lossconfig=None,
-        image_key="fbank",
         embed_dim=None,
         time_shuffle=1,
         subband=1,
@@ -42,7 +41,6 @@ class AutoencoderKL(nn.Module):
             self.monitor = monitor
 
         self.time_shuffle = time_shuffle
-        self.reload_from_ckpt = reload_from_ckpt
         self.reloaded = False
         self.mean, self.std = None, None
 
