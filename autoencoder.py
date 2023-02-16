@@ -11,7 +11,6 @@ class AutoencoderKL(nn.Module):
         self,
         ddconfig=None,
         lossconfig=None,
-        embed_dim=None,
         time_shuffle=1,
         subband=1,
         ckpt_path=None,
@@ -88,7 +87,6 @@ class AutoencoderKL(nn.Module):
         assert ch == 1
 
         return (
-            fbank.squeeze(1)
             .reshape(bs, tstep, self.subband, fbins // self.subband)
             .permute(0, 2, 1, 3)
         )
